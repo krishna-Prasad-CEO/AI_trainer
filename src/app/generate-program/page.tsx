@@ -109,7 +109,7 @@ const GenerateProgramPage = () => {
         setCallEnded(false);
 
         const fullName = user?.firstName
-          ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
+          ? `${user.firstName || ""}`.trim()
           : "There";
 
         /* await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
@@ -121,9 +121,11 @@ const GenerateProgramPage = () => {
         toast.error(`Sorry ${fullName}, Our Free limit has been Reached 🙁...`);
 
         setConnecting(false);
-        setInterval(() => {
+        const redirectTimer = setInterval(() => {
           router.push("/");
         }, 3000);
+
+        return clearInterval(redirectTimer);
       } catch (error) {
         console.log("Failed to start call", error);
         setConnecting(false);
