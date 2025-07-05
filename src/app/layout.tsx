@@ -6,6 +6,7 @@ import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <ConvexClerkProvider>
+            <Toaster />
             <Navbar />
             <div className="fixed inset-0 -z-1">
               <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background"></div>
