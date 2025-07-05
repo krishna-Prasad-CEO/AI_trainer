@@ -109,7 +109,7 @@ const GenerateProgramPage = () => {
         setCallEnded(false);
 
         const fullName = user?.firstName
-          ? `${user.firstName} ${user.lastName || ""}`.trim()
+          ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
           : "There";
 
         /* await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
@@ -119,6 +119,8 @@ const GenerateProgramPage = () => {
           }, 
         });*/
         toast.error(`Sorry ${fullName}, Our Free limit has been Reached 🙁...`);
+        vapi.stop();
+        setConnecting(false);
       } catch (error) {
         console.log("Failed to start call", error);
         setConnecting(false);
