@@ -7,7 +7,6 @@ import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CodeFlex",
-  description: "AI fitness Trainer",
+  title: "AiTrainer.ai",
+  description: "AI Trainer",
 };
 
 export default function RootLayout({
