@@ -119,8 +119,11 @@ const GenerateProgramPage = () => {
           }, 
         });*/
         toast.error(`Sorry ${fullName}, Our Free limit has been Reached 🙁...`);
-        vapi.stop();
+
         setConnecting(false);
+        setInterval(() => {
+          router.push("/");
+        }, 3000);
       } catch (error) {
         console.log("Failed to start call", error);
         setConnecting(false);
