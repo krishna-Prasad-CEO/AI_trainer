@@ -6,7 +6,6 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useState, useRef } from "react";
-import toast from "react-hot-toast";
 
 const GenerateProgramPage = () => {
   const [callActive, setCallActive] = useState(false);
@@ -112,20 +111,22 @@ const GenerateProgramPage = () => {
           ? `${user.firstName || ""}`.trim()
           : "There";
 
-        /* await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
+        await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
           variableValues: {
             full_name: fullName,
             user_id: user?.id,
-          }, 
-        });*/
-        toast.error(`Sorry ${fullName}, Our Free limit has been Reached 🙁...`);
+          },
+        });
+        {
+          /*toast.error(`Sorry ${fullName}, Our Free limit has been Reached 🙁...`);
 
         setConnecting(false);
         const redirectTimer = setInterval(() => {
           router.push("/");
         }, 3000);
 
-        return clearInterval(redirectTimer);
+        return clearInterval(redirectTimer);*/
+        }
       } catch (error) {
         console.log("Failed to start call", error);
         setConnecting(false);
